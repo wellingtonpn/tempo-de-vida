@@ -1,0 +1,40 @@
+package br.com.wellingtonpn.Jornada;
+import java.lang.Math;
+import java.util.*;
+import java.text.*;
+import org.joda.time.DateTime;
+import org.joda.time.Duration;
+public class Jornada {
+  public static boolean life = true;
+  public static boolean death = false;
+  public static void main(String args[]) {
+      DateTime dtToday = new DateTime(); //pega data e hora atual
+      DateTime dtOther = new DateTime(DateTime.parse("2014-06-15T08:00:55Z")); //exemplo
+
+      Duration dur = new Duration(dtOther, dtToday); //pega a duração da diferença dos dois
+
+      System.out.println(dur.getStandardDays());
+      SimpleDateFormat sdf1= new SimpleDateFormat("dd/MM/yyyy");
+      Date x=new Date();
+      sdf1.format(x);
+      while(life) {
+          String vSemanas = sdf1.format(x);
+          System.out.println(vSemanas);
+          Integer vMeses = 553;
+          Integer vDias = 16780;
+          Integer vAnos = 46;
+          Integer health = (int) Math.floor(Math.random() * (100 - 0 + 1) + 0);
+          if (health < 1) {
+              life = false;
+              death = true;
+              System.out.println("The Journey is Finished!");
+          } else {
+              //vSemanas--;
+              vMeses--;
+              vDias--;
+              vAnos--;
+              System.out.println("You Have One More Chance, Take It!");
+          }
+      }
+  }
+}

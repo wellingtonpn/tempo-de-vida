@@ -14,8 +14,8 @@ public class Jornada {
       System.out.println("Dias :"+vDias);
       
       while(life) {
-          Integer health = (int) Math.floor(Math.random() * (1000 - 0 + 1) + 0);
-          if (health < 1) {
+          Integer health = (int) Math.floor(Math.random() * (100000 - 0 + 1) + 0);
+          if (health < 1 || vDias < 1) {
               life = false;
               death = true;
               System.out.println("****************************************************");

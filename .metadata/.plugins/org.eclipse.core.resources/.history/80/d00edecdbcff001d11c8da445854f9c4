@@ -1,0 +1,41 @@
+package br.com.wellingtonpn;
+import org.joda.time.DateTime;
+import org.joda.time.Duration;
+public class Jornada {
+  public static boolean life = true;
+  public static boolean death = false;
+  public static void main(String args[]) {
+      DateTime dtToday = new DateTime();
+      DateTime dtOther = new DateTime(DateTime.parse("2069-06-15T08:00:55Z"));
+      Duration dur = new Duration(dtOther, dtToday);
+      long dias = dur.getStandardDays();
+      String days = String.valueOf(dias).replace("-", "");
+      String weeks = String.valueOf(dias / 7).replace("-", "");
+      String months = String.valueOf(dias / 30).replace("-", "");
+      String years = String.valueOf(dias / 365).replace("-", "");
+      
+      Integer vSemanas = Integer.valueOf(weeks);
+      Integer vDias = Integer.valueOf(days);
+      Integer vMeses = Integer.valueOf(months);
+      Integer vAnos = Integer.valueOf(years);
+      
+      System.out.println("Dias de Vida até 2049: " + vDias);
+      System.out.println("Semanas de Vida até 2049: " + vSemanas);
+      System.out.println("Meses de Vida até 2049: " + vMeses);
+      System.out.println("Anos de Vida até 2069: " + vAnos);
+      while(life) {
+          Integer health = (int) Math.floor(Math.random() * (100 - 0 + 1) + 0);
+          if (health < 1) {
+              life = false;
+              death = true;
+              System.out.println("The Journey is Finished!");
+          } else {
+              vSemanas--;;
+              vMeses--;
+              vDias--;
+              vAnos--;
+              System.out.println("You Have One More Chance, Take It!");
+          }
+      }
+  }
+}

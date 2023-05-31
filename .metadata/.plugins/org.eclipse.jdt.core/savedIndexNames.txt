@@ -1,0 +1,5 @@
+INDEX VERSION 1.132+C:\projetos\workspaces\tempo_de_vida\.metadata\.plugins\org.eclipse.jdt.core
+42972220.index
+943679179.index
+4086898293.index
+1865797976.index

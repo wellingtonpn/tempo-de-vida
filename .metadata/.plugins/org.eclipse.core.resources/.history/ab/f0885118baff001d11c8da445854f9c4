@@ -1,0 +1,49 @@
+package br.com.wellingtonpn;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import org.joda.time.DateTime;
+import org.joda.time.Duration;
+public class Jornada {
+  public static boolean life = true;
+  public static boolean death = false;
+  public static void main(String args[]) {
+      DateTime dtToday = new DateTime(); //pega data e hora atual
+      DateTime dtOther = new DateTime(DateTime.parse("2069-06-15T08:00:55Z")); //exemplo
+      Duration dur = new Duration(dtOther, dtToday);
+//      Duration dur = new Duration(dtOther, dtToday); //pega a duração da diferença dos dois
+//
+      long vDias = dur.getStandardDays();
+      long vSemanas = vDias / 7;
+      long vMeses = vDias / 30;
+      long vAnos = vDias / 365;
+      
+      System.out.println("Dias de Vida até 2049: " + vDias);
+      System.out.println("Semanas de Vida até 2049: " + vSemanas);
+      System.out.println("Meses de Vida até 2049: " + vMeses);
+      System.out.println("Anos de Vida até 2049: " + vAnos);
+//      System.out.println(dtToday);
+      SimpleDateFormat sdf1= new SimpleDateFormat("dd/MM/yyyy");
+      Date x=new Date();
+      sdf1.format(x);
+      while(life) {
+          String vSemanas = sdf1.format(x);
+          System.out.println(vSemanas);
+          Integer vMeses = 553;
+          Integer vDias = 16780;
+          Integer vAnos = 46;
+          Integer health = (int) Math.floor(Math.random() * (100 - 0 + 1) + 0);
+          if (health < 1) {
+              life = false;
+              death = true;
+              System.out.println("The Journey is Finished!");
+          } else {
+              //vSemanas--;
+              vMeses--;
+              vDias--;
+              vAnos--;
+              System.out.println("You Have One More Chance, Take It!");
+          }
+      }
+  }
+}
